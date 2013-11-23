@@ -1,0 +1,15 @@
+Once you have all the OEM12c agents installed on the servers, the next step is to get all the targets added on to OEM12c. OEM12c auto gathers the properties of the targets that you configure the agents to collect data on. Once done, you should see all the targets under auto configure results. The results shoudl include database instances, listeners, oracle homes, clusters, oracle HAS, rac databases.
+There is no option to mass promote targets from OEM12c console so that these targets can be then monitored.
+
+However emcli can run script files with multiple commands and a SQL can be used to generate the commands.
+
+To generate the SQL commands, connect to the OMS database and run the SQLs to generate the commands.
+Dump the output to a file(e.g. discover.dat)
+
+emcli login -username=OEMDBA -password=sTrOnGPassWd
+Login successful
+
+emcli sync
+Synchronized successfully
+
+emcli argfile discover.dat
